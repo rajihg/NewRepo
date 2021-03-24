@@ -1,16 +1,34 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class TestThreadCheckArray {
+	
+
+	/**
+	 * @param args
+	 * user enters array size and elemens and the method crates a new array according to the user parameters.
+	 * and the method searches if the array has a combination of sum that their sum is exactly b
+	 */
+	/**
+	 * @param array and a number
+	 * This class contains getters and setters for the variable used
+	 */
+	/**
+	 * @param sharedData
+	 * Sets and gets flags, and finds the sum by running two threads.
+	 */
 	public static void main(String[] args) {
 		try (Scanner input = new Scanner(System.in)) {
 			Thread thread1, thread2;
 			System.out.println("Enter array size");
 			int num  = input.nextInt();
-			int [] array = new int[num];
+			ArrayList<Integer> array = new ArrayList<>(num);
 			System.out.println("Enter numbers for array");
 			
-			for (int index = 0; index < num; index++) 
-				array[index] = input.nextInt();
+			for (int index = 0; index < num; index++)
+				array.add(index, input.nextInt());
+			
 			
 			System.out.println("Enter number");
 			num = input.nextInt();
@@ -35,9 +53,9 @@ public class TestThreadCheckArray {
 				System.out.println("Sorry");
 				return;
 			}
-			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().length);
+			System.out.println("Solution for b : " + sd.getB() + ",n = " + sd.getArray().size());
 			System.out.print("I:    ");
-			for(int index = 0; index < sd.getArray().length ; index++)
+			for(int index = 0; index < sd.getArray().size() ; index++)
 				System.out.print(index + "    ");
 			System.out.println();
 			System.out.print("A:    ");
